@@ -1,0 +1,2 @@
+1. Need mongodb to be installed
+2. Execute node_modules/node-mongodb-native/install.sh directory to enable communicatio with your mongodb
