@@ -1,2 +1,3 @@
-1. Need mongodb to be installed
-2. Execute node_modules/node-mongodb-native/install.sh directory to enable communicatio with your mongodb
+# Need mongodb to be installed.
+# git clone https://github.com/christkv/node-mongodb-native inside node_modules/ dir.
+# Execute node_modules/node-mongodb-native/install.sh directory to enable communication with your mongodb.
