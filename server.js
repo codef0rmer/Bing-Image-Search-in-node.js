@@ -3,6 +3,7 @@ global.MONGODB_PORT = 27017;
 global.MONGODB_NAME = 'bing_image_search';
 global.COLLECTION_NAME = 'images';
 global.mongodb = require('./node_modules/node-mongodb-native/lib/mongodb');
+global.PROJECT_ROOT = 'node.js/Bing-Image-Search-in-node.js/downloads/';
 
 var request = require('request');
 var express = require('express');
@@ -40,7 +41,7 @@ var app = express.createServer();
             var collection = new mongodb.Collection(client, COLLECTION_NAME);
             collection.find({}, {'limit':1, sort : [['_id','desc']]}).toArray(function(err, docs) {
                 res.writeHead(200, {'Content-Type': 'text/html'});
-                res.end("Searched Image : "+docs[0].image);
+                res.end("<img src='http://localhost/"+PROJECT_ROOT+docs[0].image+"' />");
             });
         });
     });
