@@ -39,9 +39,8 @@ var app = express.createServer();
         new mongodb.Db(MONGODB_NAME, new mongodb.Server('localhost', MONGODB_PORT, {}), {}).open(function (error, client) {
             if (error) throw error;
             var collection = new mongodb.Collection(client, COLLECTION_NAME);
-            collection.find({}, {'limit':1, sort : [['_id','desc']]}).toArray(function(err, docs) {
-                res.writeHead(200, {'Content-Type': 'text/html'});
-                res.end("<img src='http://localhost/"+PROJECT_ROOT+docs[0].image+"' />");
+            collection.find({}, {sort : [['_id','desc']]}).toArray(function(err, docs) {
+                res.render('fetchImage', {locals : {images : docs, project_root : PROJECT_ROOT}});
             });
         });
     });
