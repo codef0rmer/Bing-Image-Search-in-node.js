@@ -3,7 +3,7 @@ global.MONGODB_PORT = 27017;
 global.MONGODB_NAME = 'bing_image_search';
 global.COLLECTION_NAME = 'images';
 global.mongodb = require('./node_modules/node-mongodb-native/lib/mongodb');
-global.PROJECT_ROOT = 'node.js/Bing-Image-Search-in-node.js/downloads/';
+global.PROJECT_ROOT = 'learn-node/Bing-Image-Search-in-node.js/downloads/';
 
 var request = require('request');
 var express = require('express');
@@ -22,7 +22,7 @@ var app = express.createServer();
     });
 
     app.post('/', function(req, res, next){
-        request({uri: 'http://api.search.live.net/json.aspx?AppId=3465F86307063B7ADC5D16E6A608A110E437E925&Sources=image&Query='+escape(req.body.search)+'&Image.Count=1&Image.Offset=500'}, function (error, response, body) {
+        request({uri: 'http://api.search.live.net/json.aspx?AppId=3465F86307063B7ADC5D16E6A608A110E437E925&Sources=image&Query='+escape(req.body.search)+'&Image.Count=1&Image.Offset=1000'}, function (error, response, body) {
             var responseJSON = JSON.parse(body);
             imageUrl = responseJSON.SearchResponse.Image.Results[0].MediaUrl;
             if (imageUrl != undefined) {

@@ -2,3 +2,4 @@
 # git clone https://github.com/christkv/node-mongodb-native inside node_modules/ dir.
 # Execute sh node_modules/node-mongodb-native/install.sh to enable communication with your mongodb.
 # Change global.PROJECT_DIR to your root directory (skip /var/www) in server.js
+# sudo aptitude install rabbitmq-server
